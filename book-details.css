@@ -19,6 +19,7 @@ nav {
   align-items: center;
   background-color: #333;
   padding: 10px;
+  margin-bottom: 15px;
 }
 nav .logo {
   font-size: 25px;
@@ -35,6 +36,16 @@ nav .nav-links {
   margin-right: 5px;
 }
 
+/* Loading Text */
+.loading-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.loading-wrapper #loading-text {
+  width: 100%;
+}
+
 /* Book details */
 #book-details {
   margin-top: 20px;
@@ -47,6 +58,7 @@ nav .nav-links {
 .book-details-container .book-details-left {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .book-details-container .book-details-left .book-img {
   border: 1px solid #222121be;
@@ -60,5 +72,18 @@ nav .nav-links {
     li {
       font-size: 14px;
     }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .book-details-container {
+    grid-template-columns: 1fr;
+  }
+  .book-details-left {
+    display: flex;
+    flex-direction: column;
+  }
+  .book-details-left .book-img {
+    text-align: center;
   }
 }

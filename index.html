@@ -18,10 +18,21 @@
       </div>
     </nav>
     <!-- Navbar Ends -->
-
+    <div class="loading-wrapper">
+      <img id="loading-text" style="display: none" src="./assets/loading.gif" />
+    </div>
     <!-- Books List Starts -->
     <div id="books-list"></div>
     <!-- Books List Ends -->
+
+    <!-- Pagination Starts -->
+    <div id="pagination" style="display: none; text-align: center">
+      <button style="cursor: pointer" id="prev-button" disabled>
+        Previous
+      </button>
+      <button style="cursor: pointer" id="next-button" disabled>Next</button>
+    </div>
+    <!-- Pagination Ends -->
 
     <!-- Main JS -->
     <script src="./main.js"></script>

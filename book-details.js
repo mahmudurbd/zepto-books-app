@@ -1,7 +1,10 @@
 const API_URL = "https://gutendex.com/books/";
+let loading = false;
 
 // DOM Elements
 const BookDetailsContainer = document.getElementById("book-details");
+const loadingText = document.getElementById("loading-text");
+const backToHome = document.getElementById("back-to-home");
 
 // Function to get query parameter (book ID)
 function getBookIdFromURL() {
@@ -11,28 +14,49 @@ function getBookIdFromURL() {
 
 // Function to fetch book details api
 async function fetchBookDetails(id) {
+  loading = true;
+  uploadingState();
+
   const response = await fetch(API_URL + id);
   const data = await response.json();
   console.log(data);
+
+  loading = false;
+  uploadingState();
   displayBookDetails(data);
+}
+
+function uploadingState() {
+  if (loading) {
+    loadingText.style.display = "block";
+    backToHome.style.display = "none";
+  } else {
+    loadingText.style.display = "none";
+    backToHome.style.display = "block";
+  }
 }
 
 async function displayBookDetails(book) {
   BookDetailsContainer.innerHTML = `
   <div class="book-details-container">
-        <div class="book-details-left">
+        <div class="book-details-left" order="1">
           <div class="book-img">
             <img
               src="${book.formats["image/jpeg"]}"
               alt="${book.title}"
             />
           </div>
+          <div style="text-align:center;">
+          <a style="text-align:center" target="_blank" href="${
+            book.formats["text/html"]
+          }">Read Book</a>
+          </div>
         </div>
-        <div class="book-details-right">
+        <div class="book-details-right" order="2">
           <h1>${book.title}</h1>
           <p style="margin-top:5px;margin-bottom:15px;">
             by <span style="color: dodgerblue">
-              ${book.authors[0].name.split(",").reverse().join(" ")}
+              ${book.authors[0]?.name.split(",").reverse().join(" ")}
             </span>
           </p>
           <p style="font-size:18px">Genre List:</p>
@@ -40,14 +64,11 @@ async function displayBookDetails(book) {
             ${book.subjects.map((subject) => `<li>${subject}</li>`).join("")}
           </ul>
         </div>
-        <a style="text-align:center;margin-top:-20px" href="${
-          book.formats["text/html"]
-        }">Read Book</a>
       </div>
   `;
 }
 
 const bookId = getBookIdFromURL();
 
-// Initialize App
+// Initialize Function
 fetchBookDetails(bookId);

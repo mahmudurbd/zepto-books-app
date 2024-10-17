@@ -35,11 +35,22 @@ nav .nav-links {
   margin-right: 5px;
 }
 
+/* Loading Text */
+.loading-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.loading-wrapper #loading-text {
+  width: 100%;
+}
+
 /* Books List Section */
 #books-list {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 #books-list .book-card {
@@ -52,7 +63,7 @@ nav .nav-links {
 }
 .book-card .card-img {
   width: 100%;
-  max-width: 250px;
+  max-width: 150px;
   margin: 0 auto;
 }
 .book-card .card-img img {
@@ -71,5 +82,22 @@ nav .nav-links {
   position: absolute;
   top: 5px;
   right: 8px;
-  font-size: 25px;
+  cursor: pointer;
+  /* font-size: 25px; */
+}
+
+@media only screen and (max-width: 1080px) {
+  #books-list {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #books-list {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media only screen and (max-width: 576px) {
+  #books-list {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
 }
