@@ -17,10 +17,25 @@
         <a href="./wishlist.html" id="wishlist-link">Wishlist</a>
       </div>
     </nav>
+
+    <!-- Searchbar and Filter Section Starts -->
+    <div class="search-filter-area">
+      <input id="search-input" type="text" placeholder="Search here...." />
+      <select id="genre-filter">
+        <option disabled selected value="">Filter by genre</option>
+        <option value="">All</option>
+        <option value="fiction">Fiction</option>
+        <option value="drama">Drama</option>
+        <option value="poetry">Poetry</option>
+      </select>
+    </div>
+    <!-- Searchbar and Filter Section Ends -->
+
     <!-- Navbar Ends -->
     <div class="loading-wrapper">
       <img id="loading-text" style="display: none" src="./assets/loading.gif" />
     </div>
+
     <!-- Books List Starts -->
     <div id="books-list"></div>
     <!-- Books List Ends -->

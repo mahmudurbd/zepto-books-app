@@ -34,12 +34,6 @@ nav .nav-links {
   margin-right: 5px;
 }
 
-#empty-text {
-  margin-top: 5px;
-  display: flex;
-  justify-content: center;
-}
-
 /* Wishlist Starts */
 #wishlist-container {
   margin-top: 20px;
@@ -49,6 +43,9 @@ nav .nav-links {
   gap: 20px;
 }
 
+#wishlist-container .wishlist-empty {
+  grid-template-columns: repeat(1, 1fr) !important;
+}
 #wishlist-container .wishlist-card {
   background-color: #fff;
   padding: 15px;
@@ -88,11 +85,13 @@ nav .nav-links {
     grid-template-columns: repeat(3, 1fr) !important;
   }
 }
+
 @media only screen and (max-width: 768px) {
   #wishlist-container {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
+
 @media only screen and (max-width: 576px) {
   #wishlist-container {
     grid-template-columns: repeat(1, 1fr) !important;

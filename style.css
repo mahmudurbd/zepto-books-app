@@ -45,6 +45,24 @@ nav .nav-links {
   width: 100%;
 }
 
+/* Search & Filter Section */
+.search-filter-area {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 15px;
+}
+.search-filter-area #search-input {
+  width: 65%;
+  padding: 10px;
+}
+
+.search-filter-area #genre-filter {
+  width: 10%;
+  min-width: 150px;
+  padding: 10px;
+}
+
 /* Books List Section */
 #books-list {
   margin-top: 20px;
@@ -84,6 +102,11 @@ nav .nav-links {
   right: 8px;
   cursor: pointer;
   /* font-size: 25px; */
+}
+
+/* Pagination */
+#pagination {
+  margin-top: 8px;
 }
 
 @media only screen and (max-width: 1080px) {

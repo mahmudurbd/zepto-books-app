@@ -11,6 +11,8 @@ const paginationContainer = document.getElementById("pagination");
 const prevButton = document.getElementById("prev-button");
 const nextButton = document.getElementById("next-button");
 const loadingText = document.getElementById("loading-text");
+const searchInput = document.getElementById("search-input");
+const genreFilter = document.getElementById("genre-filter");
 
 // Fetch Books from API
 async function fetchBooks(url = API_URL) {
@@ -111,6 +113,22 @@ function updatePaginationButton() {
     prevButton.disabled = true;
   }
 }
+
+// Search Functionality
+searchInput.addEventListener("input", function (e) {
+  const query = e.target.value.trim();
+  const searchUrl = query ? `${API_URL}?search=${query}` : API_URL;
+  fetchBooks(searchUrl);
+});
+
+// Filter Functionality
+genreFilter.addEventListener("change", function (e) {
+  const selectedGenre = e.target.value;
+  const genreUrl = selectedGenre
+    ? `${API_URL}?topic=${selectedGenre}`
+    : API_URL;
+  fetchBooks(genreUrl);
+});
 
 // Event listener
 nextButton.addEventListener("click", function () {

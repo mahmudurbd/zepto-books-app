@@ -6,11 +6,13 @@ const wishlistContainer = document.getElementById("wishlist-container");
 // Display Wishlist Books
 function displayWishlistBooks() {
   if (wishlistData.length === 0) {
-    wishlistContainer.style.gridTemplateColumns = "1fr";
+    wishlistContainer.classList.add("wishlist-empty");
+    wishlistContainer.style.gridTemplateColumns = "repeat(1,1fr)";
     wishlistContainer.innerHTML = `<p style="text-align:center">Your wishlist is empty</p>`;
     return;
   }
 
+  wishlistContainer.classList.remove("wishlist-empty");
   wishlistContainer.innerHTML = wishlistData
     .map(
       (item) =>

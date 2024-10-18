@@ -4,7 +4,7 @@ let loading = false;
 // DOM Elements
 const BookDetailsContainer = document.getElementById("book-details");
 const loadingText = document.getElementById("loading-text");
-const backToHome = document.getElementById("back-to-home");
+const backNavigation = document.getElementById("back-navigation");
 
 // Function to get query parameter (book ID)
 function getBookIdFromURL() {
@@ -15,24 +15,25 @@ function getBookIdFromURL() {
 // Function to fetch book details api
 async function fetchBookDetails(id) {
   loading = true;
-  uploadingState();
+  updateLoadingState();
 
   const response = await fetch(API_URL + id);
   const data = await response.json();
   console.log(data);
 
   loading = false;
-  uploadingState();
+  updateLoadingState();
   displayBookDetails(data);
 }
 
-function uploadingState() {
+// Update loading state
+function updateLoadingState() {
   if (loading) {
     loadingText.style.display = "block";
-    backToHome.style.display = "none";
+    backNavigation.style.display = "none";
   } else {
     loadingText.style.display = "none";
-    backToHome.style.display = "block";
+    backNavigation.style.display = "block";
   }
 }
 
@@ -67,6 +68,11 @@ async function displayBookDetails(book) {
       </div>
   `;
 }
+
+// Back Navigation
+backNavigation.addEventListener("click", function () {
+  window.history.back();
+});
 
 const bookId = getBookIdFromURL();
 
