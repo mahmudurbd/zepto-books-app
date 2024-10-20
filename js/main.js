@@ -60,6 +60,7 @@ function displayBooks() {
           />
         </div>
         <h3 class="title">${book.title}</h3>
+        <p>Book ID: ${book.id}</p>
         <p class="author">Author: ${book.authors[0]?.name
           .split(", ")
           .reverse()
