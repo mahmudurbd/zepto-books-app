@@ -52,7 +52,7 @@ function displayBooks() {
   booksList.innerHTML = books
     .map(
       (book) => `
-    <div class="book-card" data-aos="fade-up" data-aos-duration="3000">
+    <div class="book-card" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
         <div class="card-img">
           <img
             src="${book.formats["image/jpeg"]}"
@@ -84,7 +84,7 @@ function displayBooks() {
   } else {
     paginationContainer.style.display = "none";
   }
-  AOS.init();
+  // AOS.init();
 }
 
 // Wishlist Toogle Function
